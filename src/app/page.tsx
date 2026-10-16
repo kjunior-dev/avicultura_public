@@ -15,15 +15,15 @@ export default function Home() {
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-white focus:p-4">
         Saltar para o conteúdo
       </a>
-      <SiteHeader adminUrl={adminUrl} />
+      <SiteHeader adminUrl={adminUrl}/>
       <main id="conteudo">
-        <HeroSection orderUrl={orderUrl} />
-        <BenefitsBar />
-        <AboutSection />
-        <OrderSteps />
-        <OrderCta orderUrl={orderUrl} />
+        <HeroSection orderUrl={orderUrl}/>
+        <BenefitsBar/>
+        <AboutSection/>
+        <OrderSteps/>
+        <OrderCta orderUrl={orderUrl}/>
       </main>
-      <SiteFooter adminUrl={adminUrl} />
+      <SiteFooter adminUrl={adminUrl}/>
     </>
   );
 }
