@@ -48,15 +48,42 @@ a:focus-visible { outline: 2px solid var(--ring); outline-offset: 5px; }
 .nav-link { transition: color .2s; }
 .nav-link:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 5px; }
 .eyebrow { color: var(--primary); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; }
-.egg-scene { position: relative; isolation: isolate; aspect-ratio: 1 / 1.04; overflow: hidden; border-radius: 48% 48% 8px 8px; background: linear-gradient(135deg, var(--primary-deep), var(--primary) 55%, var(--accent)); }
-.scene-circle { position: absolute; width: 80%; aspect-ratio: 1; top: 18%; left: 10%; border-radius: 50%; background: color-mix(in oklch, var(--primary-foreground) 15%, transparent); }
-.scene-caption { position: absolute; top: 12%; width: 100%; text-align: center; font-size: 10px; letter-spacing: .3em; color: var(--primary-foreground); }
-.egg { position: absolute; width: 25%; height: 34%; border-radius: 49% 49% 46% 46% / 60% 60% 40% 40%; background: radial-gradient(ellipse at 30% 25%, #f4d9ad, #ddb383 48%, #b78352 85%); box-shadow: inset -10px -12px 20px #7d4b2225, 8px 12px 18px #39432925; }
-.egg-one { left: 23%; top: 31%; transform: rotate(-24deg); }
-.egg-two { left: 46%; top: 25%; transform: rotate(12deg); }
-.egg-three { left: 59%; top: 41%; transform: rotate(33deg); }
-.egg-four { left: 36%; top: 44%; transform: rotate(-10deg); }
-.bowl { position: absolute; top: 61%; left: 16%; width: 70%; height: 24%; border-radius: 8% 8% 48% 48% / 12% 12% 88% 88%; background: repeating-linear-gradient(92deg, #dac8a8 0px, #dac8a8 8px, #cbb994 9px, #dfcfb1 12px); border-top: 10px solid #eddfc8; box-shadow: 0 24px 24px -13px #38432d66, inset 0 -20px 35px #a2906d55; transform: rotate(-5deg); }
-.scene-leaf { position: absolute; bottom: 12%; right: 5%; color: var(--sidebar); transform: rotate(25deg); }
-.scene-bottom { position: absolute; bottom: 5%; left: 0; width: 100%; text-align: center; font-size: 9px; letter-spacing: .22em; color: var(--primary-foreground); }
+
+.reviews-quotes { max-width: 80rem; margin-inline: auto; overflow: hidden; }
+.reviews-track { display: flex; width: max-content; animation: reviews-scroll 55s linear infinite; }
+.reviews-group { display: flex; flex-shrink: 0; gap: 1rem; padding-right: 1rem; }
+.reviews-card { width: min(22rem, calc(100vw - 3rem)); }
+.reviews-row--reverse .reviews-track { animation-direction: reverse; }
+.customer-reviews[data-paused="true"] .reviews-track { animation-play-state: paused; }
+@keyframes reviews-scroll { to { transform: translateX(-50%); } }
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  .customer-reviews .reviews-track { width: 100%; animation: none; }
+  .customer-reviews .reviews-group { display: grid; width: 100%; gap: 1rem; padding: 0; }
+  .customer-reviews .reviews-card { width: 100%; }
+  .customer-reviews .reviews-copy,
+  .customer-reviews .reviews-row--reverse,
+  .customer-reviews .reviews-toggle { display: none; }
+  .customer-reviews .reviews-quotes { max-width: 80rem; margin-inline: auto; padding-inline: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 640px) {
+  .customer-reviews .reviews-group { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 1024px) {
+  .customer-reviews .reviews-group { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .customer-reviews .reviews-quotes { padding-inline: 2.5rem; }
+}
+
+/* Small review collections use the same static layout as reduced motion. */
+.reviews-static .reviews-track { width: 100%; animation: none; }
+.reviews-static .reviews-group { display: grid; width: 100%; gap: 1rem; padding: 0; }
+.reviews-static .reviews-card { width: 100%; }
+.reviews-static .reviews-quotes { padding-inline: 1.5rem; }
+@media (min-width: 640px) {
+  .reviews-static .reviews-group { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .reviews-static .reviews-group { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reviews-static .reviews-quotes { padding-inline: 2.5rem; }
+}

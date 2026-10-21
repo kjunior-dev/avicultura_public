@@ -23,4 +23,10 @@ npm run build
 npm start
 ```
 
-A ilustração dos ovos é feita em CSS e não depende de imagens ou fontes externas. O conteúdo não publica preços, disponibilidade ou promessas de entrega: esses detalhes são tratados no pedido.
+A ilustração interativa usa SVG e Motion, sem imagens ou fontes externas. Três toques no ovo fazem nascer um pintainho; o botão “chocar outro ovo” reinicia a cena. As animações respeitam a preferência por movimento reduzido. O conteúdo não publica preços, disponibilidade ou promessas de entrega: esses detalhes são tratados no pedido.
+
+A secção de avaliações lê apenas avaliações aprovadas da API, através da origem `MANAGEMENT_URL` e do proxy `/api/v1/client-portal/reviews` da aplicação de gestão. A leitura é feita no servidor a cada pedido, sem cache, com timeout de 5 segundos. Uma falha mostra uma mensagem na secção e preserva o resto da página; não há testemunhos fictícios de substituição.
+
+Com uma a três avaliações, apresenta uma grelha. Com quatro ou mais, apresenta duas faixas animadas, que pausam apenas pelo botão. A preferência por movimento reduzido mantém uma grelha estática. Cada cartão mostra estrelas, comentário, nome abreviado e localidade opcional; os dados privados do pedido não são publicados.
+
+Os clientes avaliam na aplicação de gestão, pelo link privado do pedido, após a entrega. A equipa aprova ou rejeita em `/avaliacoes`. Atualize primeiro a BD e a API, depois a gestão e este site; consulte as instruções de migração no README da API.

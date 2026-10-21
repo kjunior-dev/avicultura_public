@@ -719,3 +719,32 @@ undici-types@~6.21.0:
   version "6.21.0"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.21.0.tgz#691d00af3909be93a7faa13be61b3a5b50ef12cb"
   integrity sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==
+
+motion@^14.5.0:
+  version "14.5.0"
+  resolved "https://registry.npmjs.org/motion/-/motion-14.5.0.tgz"
+  integrity sha512-A0MinYYhYU12CHELw4+9jKPVreI43yDOprC4kAATHhF1rLfMFMhfpBR0GvdRR/IWEuKsHDnVn4fT+R2gQRyulw==
+  dependencies:
+    framer-motion "14.5.0"
+    tslib "^2.4.0"
+
+framer-motion@14.5.0:
+  version "14.5.0"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-14.5.0.tgz"
+  integrity sha512-pXIj1m9JX//3XExUgQIpS0f5iWcjenO14ekdg9S++Rr0VzfnAaveoNzonigRarD/+AM3umTGS3K/RANGQJitCQ==
+  dependencies:
+    motion-dom "14.5.0"
+    motion-utils "14.1.1"
+    tslib "^2.4.0"
+
+motion-dom@14.5.0:
+  version "14.5.0"
+  resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-14.5.0.tgz"
+  integrity sha512-GAdnk1AgdtyrD3I09ZxEpV+Nt5QgwUsxN55qQV8mfk082dFQpcoT07wXkQAHRZjvZWUEBYhBVNeoXvtkYdL8jA==
+  dependencies:
+    motion-utils "14.1.1"
+
+motion-utils@14.1.1:
+  version "14.1.1"
+  resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-14.1.1.tgz"
+  integrity sha512-3VvN5Uvf8B6qG+OfOui6Nht5EWp+vLuU3IqcAj7ItZGKqtmTjCebl5sGZF7/08gEHRnEl1AP/fIwbcEyVrcQGQ==
